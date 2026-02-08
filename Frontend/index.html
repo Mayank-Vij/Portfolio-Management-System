@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>📈 SmartGrow Pro Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📈 SmartGrow Pro</h1>
+    <nav id="topnav">
+      <button onclick="showSection('dashboard')">Dashboard</button>
+      <button onclick="showSection('portfolio')">Portfolio</button>
+      <button onclick="showSection('prediction')">Prediction</button>
+      <button onclick="showSection('risk')">Risk</button>
+      <button onclick="showSection('pca')">PCA</button>
+      <button onclick="showSection('learn')">Learn</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LIVE DASHBOARD -->
+    <section id="dashboard" class="section active">
+      <h2>Live Market Dashboard</h2>
+      <div class="toolbar">
+        <button onclick="loadLivePrices()">Refresh Top Stocks</button>
+        <button onclick="loadAllStocks()">Show All Stocks</button>
+      </div>
+      <div id="livePricesResult" class="grid"></div>
+      <canvas id="liveChart" height="100"></canvas>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section hidden">
+      <h2>Portfolio Manager</h2>
+      <textarea id="portfolioData" rows="5" placeholder="ADANIPORTS,10&#10;ASIANPAINT,5"></textarea>
+      <button onclick="calculatePortfolio()">Calculate Portfolio</button>
+      <div id="portfolioResult"></div>
+    </section>
+
+    <!-- PREDICTION -->
+    <section id="prediction" class="section hidden">
+      <h2>Price Prediction</h2>
+      <input id="predictTicker" placeholder="Ticker (e.g. INFY)" />
+      <button onclick="predictPrice()">Predict</button>
+      <div id="predictionResult" class="card"></div>
+    </section>
+
+    <!-- RISK -->
+    <section id="risk" class="section hidden">
+      <h2>Risk & Anomaly Detection</h2>
+      <input id="riskTicker" placeholder="Ticker (e.g. TCS)" />
+      <button onclick="analyzeRisk()">Analyze</button>
+      <div id="riskResult"></div>
+    </section>
+
+    <!-- PCA -->
+    <section id="pca" class="section hidden">
+      <h2>PCA Variance Analysis</h2>
+      <input id="pcaTicker" placeholder="Ticker (e.g. SBIN)" />
+      <button onclick="runPCA()">Run PCA</button>
+      <div id="pcaResult"></div>
+    </section>
+
+    <!-- LEARNING -->
+    <section id="learn" class="section hidden">
+      <h2>Financial Learning Center</h2>
+      <p>Explore guides and schemes that help you invest smartly.</p>
+      <button onclick="openFinLearn()">Open FinLearn</button>
+      <div id="learnCourses"></div>
+    </section>
+  </main>
+
+  <div id="toast"></div>
+
+  <footer>
+    <p>© 2025 SmartGrow Pro | Your Personal Investment Assistant</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

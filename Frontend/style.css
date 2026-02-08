@@ -1,0 +1,95 @@
+:root {
+  --blue:#00b4db;
+  --blue-dark:#0083b0;
+  --bg-dark:#0e0e0f;
+  --bg-card:#ffffffee;
+  --text-dark:#222;
+}
+
+body {
+  font-family:"Segoe UI",sans-serif;
+  margin:0;
+  background:linear-gradient(135deg,var(--bg-dark),#1b1b1b);
+  color:var(--text-dark);
+}
+
+header {
+  text-align:center;
+  padding:1rem;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+#topnav {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-top:.5rem;
+}
+
+#topnav button {
+  background:#fff3;
+  border:none;
+  padding:.6rem 1rem;
+  color:white;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.3s;
+}
+#topnav button:hover {background:#fff6;}
+
+main {
+  max-width:1000px;
+  margin:2rem auto;
+  padding:1rem;
+}
+
+.section {
+  display:none;
+  animation:fadeIn .4s ease;
+}
+.section.active,
+.section:not(.hidden) {display:block;}
+
+h2 {color:var(--blue-dark);}
+textarea,input {
+  width:100%;padding:.8rem;margin:1rem 0;border-radius:6px;border:1px solid #ccc;
+}
+button {
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  border:none;color:white;font-weight:bold;
+  padding:.7rem 1.2rem;border-radius:8px;cursor:pointer;
+  transition:background .3s;
+}
+button:hover {background:linear-gradient(135deg,var(--blue-dark),#005f73);}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1rem;margin-top:1rem;
+}
+.card,.stock-item {
+  background:var(--bg-card);
+  border-radius:10px;
+  padding:1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  text-align:center;
+}
+footer {
+  text-align:center;
+  color:#aaa;
+  padding:1rem 0;
+  font-size:.9rem;
+}
+.loader {color:var(--blue);font-weight:bold;}
+#toast {
+  position:fixed;bottom:30px;right:30px;
+  background:#222;color:#fff;padding:10px 20px;
+  border-radius:8px;opacity:0;transition:opacity .5s;
+}
+#toast.show {opacity:1;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
